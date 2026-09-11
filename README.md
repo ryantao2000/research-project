@@ -1,4 +1,4 @@
-# research-project 0.6.0
+# research-project 0.6.1
 
 一套轻量、可追溯的个人研究工作区组织方法。入口：[SKILL.md](SKILL.md)。本仓库根目录就是完整skill包。
 
@@ -18,3 +18,5 @@ uv run python scripts/project.py --root /path/to/project check
 `--include`缩小检查范围，`--exclude`排除项目声明的路径；独立Git目录自动剪枝。工具不检查标题锚点、提取准确性或科学结论，也不写索引。
 
 [版本变化](CHANGELOG.md) · [来源与取舍](PROVENANCE.md)。
+
+本地v0.6.1补齐Phase生命周期、重要INDEX模板与Concepts组织细则；版本标记不等于远程已发布。目录管理见[映射](references/index-management.md)，本轮验证见[验证记录](VALIDATION.md)。
