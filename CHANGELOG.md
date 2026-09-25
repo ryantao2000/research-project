@@ -1,5 +1,17 @@
 # 版本记录
 
+## 1.0.0 · 2026-09-26
+
+重新设计：skill只负责初始化与迁移，内容以模板为主。
+
+- 新结构：`desk/`研究者区域（00看板、01方向、02决定、03目标、04计划、05结果专栏、06概念专栏、07报告、08疑问、09外部输入）；顶层`lab/ literature/ repos/ data/ code/ work/ tools/ sync/ tmp/ archive/`不编号。
+- Results改为`05_findings/`专栏：总结果页“一眼看懂”+ 每计划一个专栏，专题为讲解型文章；细节证据移到`work/NN_slug/evidence/`。取消CLAIMS台账。
+- 实验与run合并为按计划组织的`work/NN_slug/`，取消NN-M实验编号；run记录`RUN.json`与`code_commit`。
+- 计划模板采用Phase中心结构（Phase｜中心问题｜关键工作说明｜核心产出），建立后默认汇报用途与路线。
+- 新增Goal收尾清单、疑问暂存与沉淀流程、DECISIONS、首尾阅读勾选框、lab notebook（nbstripout）、OPS服务器卡片、`tools/remote.sh`部署回传范例。
+- literature与repos分开，各有类别目录与`_inbox`；upstream、facts、UNKNOWNS不再单独设置。
+- 删除`project.py`检查工具、测试、references、VALIDATION、PROVENANCE与旧模板；授权原则只在AGENTS模板写一次。
+
 ## 0.6.1 · 2026-09-11
 
 - 补齐Phase导航、授权/执行状态分离、追加、修订、暂停、恢复、取消和完成规则。

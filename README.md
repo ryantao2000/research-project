@@ -1,22 +1,17 @@
-# research-project 0.6.1
+# research-project 1.0
 
-一套轻量、可追溯的个人研究工作区组织方法。入口：[SKILL.md](SKILL.md)。本仓库根目录就是完整skill包。
+个人研究工作区的组织方法与模板。入口：[SKILL.md](SKILL.md)。
 
-- 研究方向、计划、执行证据、结果、学习和报告职责分明，目录按需建立。
-- 文献每篇一个目录，集中保存来源、原文和提取；理解直接进入Concepts。
-- Concepts用正文Markdown任务列表记录用户是否读懂，支持Typora交互。
-- project.py只读检查本地链接与计划/Results目录配对，不管理授权或科学接纳。
+- **两个区域**：`desk/`是研究者本人的区域，用来阅读、勾选、提问；其余目录是模型的执行与证据区。
+- **编号体系**：desk内部、计划、专栏、文章编号；论文与代码仓库用语义键；计划在plans、findings、work三处同号。
+- **分层INDEX**：AGENTS → 各目录`00_INDEX.md`（维护规则 + 导航）→ 文件，模型按任务逐层读取。
+- **Goal节奏**：阶段性成果节点，收尾时按清单整理疑问、inbox、方向与git。
+- **专栏阅读**：findings与concepts都是专栏式讲解文章，首尾带Typora勾选框。
 
 ## 使用
 
-将完整包安装到项目所采用的skill目录，并记录使用的版本。先读架构与初始化说明，按项目实际需要实例化模板；升级前比较本地定制，不自动覆盖AGENTS、计划或阅读状态。
+把整个仓库放到项目采用的skill目录（如`.claude/skills/research-project/`）。在新项目中请模型“用research-project初始化项目”，或“把旧项目迁移到research-project结构”。之后的日常工作按项目自己的AGENTS与INDEX进行，无需再加载skill。
 
-```bash
-uv run python scripts/project.py --root /path/to/project check
-```
+模板按项目目录结构组织在[templates/](templates/)，对照表见SKILL.md。
 
-`--include`缩小检查范围，`--exclude`排除项目声明的路径；独立Git目录自动剪枝。工具不检查标题锚点、提取准确性或科学结论，也不写索引。
-
-[版本变化](CHANGELOG.md) · [来源与取舍](PROVENANCE.md)。
-
-本地v0.6.1补齐Phase生命周期、重要INDEX模板与Concepts组织细则；版本标记不等于远程已发布。目录管理见[映射](references/index-management.md)，本轮验证见[验证记录](VALIDATION.md)。
+[版本记录](CHANGELOG.md)
