@@ -1,53 +1,67 @@
-# 研究工作区 · 操作原则
+# <项目名> · 模型工作原则
 
-## 范围与保护
+<!-- 常驻文件，目标4KB以内。只写每次都需要的原则、编号和路由；目录细则写在各自00_INDEX。 -->
 
-用户当前要求决定任务范围；已授权工作连续完成，只读任务不写文件。不得自行放宽权限、资源上限或证据接纳标准。既有计划授权不因模板升级而扩大。
+<一句话研究目标。> 方向详见 [OVERVIEW](desk/01_OVERVIEW.md)，当前状态见 [看板](desk/00_INDEX.md)。
 
-原始资料、私人数据、第三方原件、accepted run与归档按项目权限保护；不读打印密钥，不把敏感资料写进提示词、日志或公开产物。外部写入、push、上传和发布须有明确授权。
+## 边界
 
-## 权威与入口
+- 本次范围由用户当前要求决定；只读任务不改文件。已获批的计划在范围内连续完成，Phase切换不重复请求批准；完成交付后停止，不为用完预算追加工作。
+- 新的付费计算、超出计划上限、push/上传/对外发布、删除原始数据或run，需用户明确同意。
+- 不读取、打印或提交`.env`与密钥；代码只通过环境变量名引用凭据。
+- 保护原件：`data/`原始数据、`literature/`原文、`repos/`外部仓库、`09_meetings/01_source/`、已接受的run，只读不改。
+- 阅读勾选只在用户明确表示读懂时修改。
 
-初始化时用实际信息补充研究目标、方法源码权威、Git边界及资源默认政策；不继承示例项目的机器、预算或执行许可。当前环境写OPS，方向写OVERVIEW。
+## 编号
 
-需要全局状态读 `00_knowledge/00_INDEX.md`；局部任务只读相关材料。创建、修订、恢复或结束计划读 `00_knowledge/02_subplans/00_INDEX.md`。日常工作无需先读skill。
+| 对象 | 格式 | 位置 | 规则 |
+|---|---|---|---|
+| 目标 | `G<NN>_slug` | desk/03_goals | 全局唯一，不复用 |
+| 计划 | `NN_slug`，行文写P<NN> | desk/04_plans · desk/05_findings · work | 三处同号同slug；Phase从0起，0为基础核验 |
+| 结果专题 | 专栏内`NN_slug` | desk/05_findings/NN_slug/ | 同号ipynb可放lab |
+| 概念专栏/文章 | `NN_slug` | desk/06_concepts/ | 编号分配后不改；阅读顺序以INDEX为准 |
+| 报告 | `R<NN>_slug` | desk/07_reports | 版本记在报告目录内 |
+| 决定 | `D<NN>` | desk/02_DECISIONS.md | 只追加 |
+| 疑问 | `Q<NNN>_slug` | desk/08_questions | 必须写明去向 |
+| 外部输入 | `G<NN>-S<nn>` | desk/09_meetings | 按Goal分卷 |
+| notebook | `NN_slug.ipynb` | lab | 阅读顺序以INDEX为准 |
+| run | `NN-slug-YYYYMMDD[-rN]` | work/NN_slug/runs | 以所属计划号开头 |
+| 文献/代码仓库 | 语义键`author年份-主题` | literature · repos | 同一工作两边同key |
 
-Results与CLAIMS保存结论及证据；Concepts保存教学解释和用户明确给出的读懂复选框与卡点；问答记录实际对话；外部输入与助手提取分开。各级入口人工维护；project.py只检查链接和目录关系，不写状态。
+## 按任务读取
 
-## 执行与证据
+先读与任务相关的入口，不通读全仓。
 
-新实验先有具体计划与授权，普通答疑或局部修复不自动立项。计划写清问题、信息边界、比较设计、失败与停止条件、交付物和必要资源；报告或教学交付按实际需要裁剪。
-
-必要本地提交及远程传输在计划申请中说明；用户批准明确包含该动作的范围后不重复确认。未包含则不能推定许可，不夹带无关提交，不重写历史。
-
-正式run先做相关preflight及必要测试，由runner冻结配置、版本和预算；失败保留、按unit落盘、单run单supervisor且取得原子锁。恢复另起run并记录来源与成本。验证完成不等于科学接纳，accepted产物只读。
-
-原始产物优先于摘要，数字有来源与不确定性，额外信息参考不混入公平排名。负结果及被推翻结论保留；证据限制直接写对应正文，不强制独立缺口台账。原样复现与适配分开。
-
-## 表达与维护
-
-按受众解释事实、推导与假说，允许明确标注的教学示例，不补造方法或来源。用户已读、未读与卡点仅在学习入口由用户决定，不能由材料完成推断掌握。
-
-验证按改动与风险选取，完成批准目标后停止，不自动追加实验。结果汇报交付、验证及限制。
-
-已授权编辑可修复直接受影响的索引；只读任务只报告问题。项目规则变化留反馈，skill和模板迭代需用户明确要求，不在普通工作中自动改通用母版。
-
-
-## 按任务路由（初始化时映射到实际目录）
-
-| 任务 | 项目入口 |
+| 任务 | 入口 |
 |---|---|
-| 计划、Phase新增/恢复/收口 | 00_knowledge/02_subplans/00_INDEX.md，然后计划当前阶段与Results |
-| 结果与引用判断 | 00_knowledge/03_results/00_INDEX.md及CLAIMS |
-| 学习与改写 | 00_knowledge/05_concepts/00_INDEX.md，然后专题INDEX |
-| 文献入库或提取问题 | 01_literature/00_INDEX.md与对应SOURCE |
-| 数据、实验、上游实现 | 对应目录INDEX；运行定位规则见05_runs入口（启用时） |
-| 报告与同步 | 00_knowledge/07_reports/00_INDEX.md及06_sync/00_INDEX.md |
-| 问答、事实、目标、外部输入或审稿 | 对应实际启用目录的INDEX |
+| 了解现状、待决定事项 | [desk/00_INDEX.md](desk/00_INDEX.md) |
+| 开启或收尾Goal | [desk/03_goals/00_INDEX.md](desk/03_goals/00_INDEX.md) |
+| 建立、修订、恢复计划 | [desk/04_plans/00_INDEX.md](desk/04_plans/00_INDEX.md) |
+| 执行实验、写脚本、跑run | [work/00_INDEX.md](work/00_INDEX.md)，然后`work/NN_slug/00_INDEX.md` |
+| 使用服务器 | [OPS.md](OPS.md) |
+| 写或更新结果专栏 | [desk/05_findings/00_INDEX.md](desk/05_findings/00_INDEX.md) |
+| 讲解、写学习材料 | [desk/06_concepts/00_INDEX.md](desk/06_concepts/00_INDEX.md) |
+| 处理疑问 | [desk/08_questions/00_INDEX.md](desk/08_questions/00_INDEX.md) |
+| 入库论文 / 代码仓库 | [literature/00_INDEX.md](literature/00_INDEX.md) · [repos/00_INDEX.md](repos/00_INDEX.md) |
+| 写报告、对外交付 | [desk/07_reports/00_INDEX.md](desk/07_reports/00_INDEX.md) · [sync/00_INDEX.md](sync/00_INDEX.md) |
 
-未启用目录不预建空入口；局部任务不为读表而遍历所有目录。
+## 代码与执行
 
+- 另一个计划会调用的代码放`code/`（方法包与测试）；只服务本计划的放`work/NN_slug/scripts/`；临时文件放`tmp/`。
+- 服务器只运行已提交的代码：部署前提交，run记录`code_commit`。部署与回传命令见OPS。
+- 每个run记录配置、commit、开始结束时间与资源；失败run保留，恢复另起run并注明来源。
+- 结果数字来自`work/NN_slug/tables/`或run原始产物，写进findings时链接来源；lab notebook只做探索。
+- 环境用uv：`uv run python …`。
 
-## 共通Markdown格式
+## 写作
 
-行内公式用 `\(公式\)`，独立公式用前后各自独占一行的 `$$`；不使用单美元行内公式、句内双美元或普通代码块呈现数学正文。代码另用代码块，独立LaTeX按文稿规范。Concepts总入口承载具体学习格式并由专题继承；报告沿用此共通约定。仅对新增或本次修改内容执行，历史原文不批量改写。
+- 中文为主；代码标识、论文原名、标准指标保留英文。
+- 行内公式`\(…\)`，独立公式用前后独占一行的`$$`。
+- desk中的阅读型文档（计划、结果专题、概念文章、报告）首尾保留勾选框。
+- 区分已核验事实、推导与假说；给出样本量、基线和不确定性；负结果和被推翻的结论保留并注明。
+- 读者在正文中写的`> ❓`是待回答的疑问，处理方式见questions INDEX。
+
+## Git
+
+- 获批计划写明“包含本地提交”时，每个Phase完成与Goal收尾各提交一次，信息格式`P<NN> Phase<k>: …`或`G<NN> 收尾: …`；只提交本任务相关文件。
+- push由用户执行或明确授权后执行。`sync/`下每个仓库独立提交与push。
