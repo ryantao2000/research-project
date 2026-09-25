@@ -10,7 +10,7 @@
 
    然后对模型说“处理问题”。能就地解决的，模型在原位回答（`> 💬 答：…`）或直接改进正文；需要更多工作的，转为下面的Q文件。
 
-2. **对话中产生的疑问。** 研究者说“记下来”，模型按[模板](question.md)建`Q<NNN>_slug.md`：原话、简答、去向。
+2. **对话中产生的疑问。** 研究者说“记下来”，模型按research-project skill的`templates/desk/08_questions/question.md`建`Q<NNN>_slug.md`：原话、简答、去向。
 
 ## 去向
 

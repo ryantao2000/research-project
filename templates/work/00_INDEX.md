@@ -17,7 +17,7 @@ work/NN_slug/
 └── runs/         原始产物，不进git
 ```
 
-计划开始执行时用[计划执行入口模板](plan-INDEX.md)和[日志模板](log.md)建立；目录按需创建。
+计划开始执行时用research-project skill的`templates/work/plan-INDEX.md`与`log.md`建立；目录按需创建。
 
 ### 代码放哪里
 
