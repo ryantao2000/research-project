@@ -1,4 +1,4 @@
-# research-project 1.0
+# research-project 1.1
 
 个人研究工作区的组织方法与模板。入口：[SKILL.md](SKILL.md)。
 
