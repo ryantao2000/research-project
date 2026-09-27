@@ -1,5 +1,14 @@
 # 版本记录
 
+## 1.1.0 · 2026-09-28
+
+lab按ChoicePFN-v2的实际设计回收。
+
+- lab分栏：notebook按陪读的材料放`lab/concepts/NN_slug/`或`lab/findings/NN_slug/`，与desk专栏同号同slug，栏内编号；新增栏INDEX模板`templates/lab/column-INDEX.md`，根INDEX改为分栏总表。
+- 统一uv环境：新增`templates/lab/setup_env.sh`与`requirements.txt`；`requirements.lock`锁定精确版本，`lab/.venv`不进git，注册专用Jupyter内核，`code/`以可编辑方式装入同一环境。
+- 维护规则补充：首个代码单元约定、共用模块`_<name>.py`、规模约束（训练与完整评估放`work/NN_slug/scripts/`）、登记前用nbconvert完整执行。
+- AGENTS编号表与路由、README、SKILL初始化步骤、concepts与findings专栏模板同步改为分栏写法。
+
 ## 1.0.0 · 2026-09-26
 
 重新设计：skill只负责初始化与迁移，内容以模板为主。

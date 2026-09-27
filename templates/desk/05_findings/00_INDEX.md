@@ -21,7 +21,7 @@
 ## 维护规则
 
 - 每个计划一个专栏`NN_slug/`，与计划同号同slug；有实际结果时才建立。
-- 专栏由[专栏入口模板](column-INDEX.md)和[专题模板](topic.md)组成。专题是**讲解型文章**：按研究问题组织，通常一个计划3–8篇，大致对应Phase的中心问题。
+- 专栏按research-project skill的`templates/desk/05_findings/column-INDEX.md`与`topic.md`建立。专题是**讲解型文章**：按研究问题组织，通常一个计划3–8篇，大致对应Phase的中心问题。
 - 逐格对照、逐run指标、失败诊断等细节放`work/NN_slug/evidence/`，专题链接过去。
 - 图表数据来自`work/NN_slug/tables/`或run产物；专题中的每个数字能追溯来源。
 - 专栏INDEX的“读懂”列从正文勾选同步；本页“读懂”列写已读懂篇数/总篇数。

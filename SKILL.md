@@ -2,9 +2,9 @@
 name: research-project
 description: 初始化个人研究工作区（AGENTS、desk阅读区、编号与各级INDEX管理体系），或把旧研究项目迁移到这套结构；也在需要计划、结果专栏、概念专栏、Goal、服务器手册等模板时使用。日常工作遵循项目自己的AGENTS与INDEX，无需加载本skill。
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
-# research-project v1.0
+# research-project v1.1
 
 一套个人研究工作区的组织方法。skill只负责**初始化和迁移**：生成项目的AGENTS、目录骨架和各级INDEX。之后的日常工作由项目内的AGENTS和INDEX驱动。
 
@@ -38,7 +38,7 @@ Goal开启 → 计划NN → 执行 work/NN → 结果专栏 findings/NN → 概�
 │   ├── 04_plans/        NN_slug.md    05_findings/     NN_slug/ 结果专栏
 │   ├── 06_concepts/     NN_专栏/      07_reports/      R01…
 │   ├── 08_questions/    Q001…         09_meetings/     source / extracted
-├── lab/           实操notebook，编号，配nbstripout
+├── lab/           实操notebook：concepts/NN_slug/ · findings/NN_slug/ 与desk专栏同号；uv环境＋nbstripout
 ├── literature/    论文与文字资料：类别目录 + _inbox
 ├── repos/         参考代码仓库：类别目录 + _inbox（仓库本体不进外层git）
 ├── data/          项目数据（原始数据不进git）
@@ -57,7 +57,7 @@ Goal开启 → 计划NN → 执行 work/NN → 结果专栏 findings/NN → 概�
 ### 新建项目
 
 1. 问清：研究问题（一两句）、是否有服务器、是否需要对外交付仓库、是否要lab notebook、concepts打算从哪些专栏起步。
-2. 按下表复制模板到项目，填入真实内容；删掉无内容的小节和模板注释。`templates/gitignore`复制为`.gitignore`，`templates/lab/gitattributes`复制为`lab/.gitattributes`。
+2. 按下表复制模板到项目，填入真实内容；删掉无内容的小节和模板注释。`templates/gitignore`复制为`.gitignore`，`templates/lab/gitattributes`复制为`lab/.gitattributes`。启用lab时填好`lab/requirements.txt`与`setup_env.sh`里的内核名，运行`bash lab/setup_env.sh`生成`requirements.lock`与`lab/.venv`；分栏目录随第一本notebook建立。
 3. 创建`CLAUDE.md → AGENTS.md`软链接。
 4. `git init`并首次提交；启用lab时在项目根执行`nbstripout --install --attributes lab/.gitattributes`（需已安装：`uv tool install nbstripout`）。
 5. 向研究者汇报：建立了哪些目录、desk从哪里开始读、下一步建议开第一个Goal。
@@ -86,7 +86,8 @@ Goal开启 → 计划NN → 执行 work/NN → 结果专栏 findings/NN → 概�
 | `templates/desk/07_reports/00_INDEX.md` | 报告入口 |
 | `templates/desk/08_questions/00_INDEX.md` · `question.md` | 疑问暂存 · 单个`Q<NNN>_slug.md` |
 | `templates/desk/09_meetings/00_INDEX.md` | 外部输入入口 |
-| `templates/lab/00_INDEX.md` · `gitattributes` | `lab/` |
+| `templates/lab/00_INDEX.md` · `column-INDEX.md` | lab入口 · 栏`lab/concepts/NN_slug/`或`lab/findings/NN_slug/`的`00_INDEX.md` |
+| `templates/lab/setup_env.sh` · `requirements.txt` · `gitattributes` | `lab/`（环境脚本、依赖意图、nbstripout） |
 | `templates/literature/00_INDEX.md` · `SOURCE.md` | 文献入口 · 每篇`<key>/SOURCE.md` |
 | `templates/repos/00_INDEX.md` | 代码仓库登记 |
 | `templates/work/00_INDEX.md` · `plan-INDEX.md` · `log.md` | 执行区入口 · `work/NN_slug/00_INDEX.md` · 执行日志 |

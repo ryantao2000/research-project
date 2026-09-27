@@ -16,7 +16,7 @@
 
 ## 参考材料
 
-<!-- 可选：ref/ 中的长推导、历史材料，各写一句用途；相关literature与lab notebook。 -->
+<!-- 可选：ref/ 中的长推导、历史材料，各写一句用途；相关literature；配套notebook见`lab/concepts/NN_slug/`。 -->
 
 ## 更新记录
 

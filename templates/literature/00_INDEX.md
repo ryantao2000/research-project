@@ -4,7 +4,7 @@
 
 ## 维护规则
 
-- **结构**：`<类别>/<key>/`，每篇一个目录，含[SOURCE.md](SOURCE.md)、原文（`paper.pdf`）和提取文本（`extracted.txt`），按实际取得创建；多版本用明确文件名并存。
+- **结构**：`<类别>/<key>/`，每篇一个目录，含`SOURCE.md`（research-project skill的`templates/literature/SOURCE.md`）、原文（`paper.pdf`）和提取文本（`extracted.txt`），按实际取得创建；多版本用明确文件名并存。
 - **key**：`第一作者姓+年份-主题短语`，如`berbeglia2022-retail-choice`；同一工作的代码在repos用同一个key。
 - **类别**：4–6个稳定类别，见下表；建好后尽量不移动目录。一篇只放一个类别，跨类别关系在登记表“备注”写明。
 - **Inbox**：来不及归类的放`_inbox/<key>/`，只要放进来就算入库；Goal收尾时由模型建议类别，研究者确认后移动并登记。

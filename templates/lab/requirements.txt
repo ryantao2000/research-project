@@ -1,0 +1,9 @@
+# lab统一环境的依赖意图；精确版本见requirements.lock，建环境用 bash lab/setup_env.sh
+# 固定版本时在行尾或上一行注释写原因（例如外部作者代码依赖某个主版本）
+numpy
+pandas
+matplotlib
+# notebook运行与内核注册
+jupyterlab
+ipykernel
+nbconvert

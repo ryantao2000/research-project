@@ -18,13 +18,13 @@
 |---|---|---|---|
 | 目标 | `G<NN>_slug` | desk/03_goals | 全局唯一，不复用 |
 | 计划 | `NN_slug`，行文写P<NN> | desk/04_plans · desk/05_findings · work | 三处同号同slug；Phase从0起，0为基础核验 |
-| 结果专题 | 专栏内`NN_slug` | desk/05_findings/NN_slug/ | 同号ipynb可放lab |
+| 结果专题 | 专栏内`NN_slug` | desk/05_findings/NN_slug/ | 配套notebook放lab/findings/NN_slug/ |
 | 概念专栏/文章 | `NN_slug` | desk/06_concepts/ | 编号分配后不改；阅读顺序以INDEX为准 |
 | 报告 | `R<NN>_slug` | desk/07_reports | 版本记在报告目录内 |
 | 决定 | `D<NN>` | desk/02_DECISIONS.md | 只追加 |
 | 疑问 | `Q<NNN>_slug` | desk/08_questions | 必须写明去向 |
 | 外部输入 | `G<NN>-S<nn>` | desk/09_meetings | 按Goal分卷 |
-| notebook | `NN_slug.ipynb` | lab | 阅读顺序以INDEX为准 |
+| notebook | `NN_slug.ipynb` | lab/concepts/NN_slug/ · lab/findings/NN_slug/ | 与所陪读的专栏同号同slug；栏内编号，阅读顺序以栏INDEX为准 |
 | run | `NN-slug-YYYYMMDD[-rN]` | work/NN_slug/runs | 以所属计划号开头 |
 | 文献/代码仓库 | 语义键`author年份-主题` | literature · repos | 同一工作两边同key |
 
@@ -41,6 +41,7 @@
 | 使用服务器 | [OPS.md](OPS.md) |
 | 写或更新结果专栏 | [desk/05_findings/00_INDEX.md](desk/05_findings/00_INDEX.md) |
 | 讲解、写学习材料 | [desk/06_concepts/00_INDEX.md](desk/06_concepts/00_INDEX.md) |
+| 写或运行notebook | [lab/00_INDEX.md](lab/00_INDEX.md) |
 | 处理疑问 | [desk/08_questions/00_INDEX.md](desk/08_questions/00_INDEX.md) |
 | 入库论文 / 代码仓库 | [literature/00_INDEX.md](literature/00_INDEX.md) · [repos/00_INDEX.md](repos/00_INDEX.md) |
 | 写报告、对外交付 | [desk/07_reports/00_INDEX.md](desk/07_reports/00_INDEX.md) · [sync/00_INDEX.md](sync/00_INDEX.md) |
