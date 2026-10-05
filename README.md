@@ -1,4 +1,4 @@
-# research-project 1.1
+# research-project 1.2
 
 个人研究工作区的组织方法与模板。入口：[SKILL.md](SKILL.md)。
 
@@ -6,6 +6,7 @@
 - **编号体系**：desk内部、计划、专栏、文章编号；论文与代码仓库用语义键；计划在plans、findings、work三处同号。
 - **分层INDEX**：AGENTS → 各目录`00_INDEX.md`（维护规则 + 导航）→ 文件，模型按任务逐层读取。
 - **Goal节奏**：阶段性成果节点，收尾时按清单整理疑问、inbox、方向与git。
+- **研究推进优先**：计划以假说与决定开头、以研究判断结束；溯源只做最小必要的四件事，待决定事项在对话中直接问。
 - **专栏阅读**：findings与concepts都是专栏式讲解文章，首尾带Typora勾选框。
 
 ## 使用

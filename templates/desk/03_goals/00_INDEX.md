@@ -7,14 +7,15 @@ Goal是5–10天到数周的阶段性成果节点：这段时间交付什么、�
 ## 维护规则
 
 - **编号**：`G<NN>_slug.md`，全局唯一，不复用；时间范围写在正文。
-- **开启**：用research-project skill的`templates/desk/03_goals/goal.md`写目标、时间、范围边界、任务表、完成条件；在本页和[看板](../00_INDEX.md)登记为当前Goal。
-- **进行中**：任务状态在同一张表内更新，不删行；进度记录只追加关键节点。
+- **开启**：用research-project skill的`templates/desk/03_goals/goal.md`写阶段判断、目标、时间、范围边界、任务表、完成条件；在本页和[看板](../00_INDEX.md)登记为当前Goal。没有可回答的阶段判断时不开Goal。
+- **进行中**：任务状态在同一张表内更新；范围调整直接改写正文，进度记录留一行。不在文件顶部叠加历史稿或撤回通知，撤回记在DECISIONS。
 - **需要汇报时**：在`07_reports/`产出报告，Goal文件只链接过去。
 
 ## 收尾清单
 
 Goal结束时由模型逐项执行，结果写进该Goal的“收尾”一节：
 
+0. **阶段判断**：写明判断结果与依据；命题被推翻时给出转向方案，记入DECISIONS。
 1. **结果专栏**：更新本Goal涉及计划的findings专栏INDEX，以及[总结果](../05_findings/00_INDEX.md)的“一眼看懂”。
 2. **疑问**：列出[08_questions](../08_questions/00_INDEX.md)中未沉淀的Q，由研究者决定去向（沉淀到专栏 / 转成计划 / 关闭）。
 3. **Inbox**：列出[literature](../../literature/00_INDEX.md)与[repos](../../repos/00_INDEX.md)的`_inbox`条目，建议类别，由研究者确认后归类。
