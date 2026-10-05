@@ -12,7 +12,7 @@ work/NN_slug/
 ├── configs/      实验配置（yaml），运行前提交
 ├── scripts/      本计划专用：启动、编排、汇总、绘图
 ├── tables/       脚本生成的整洁结果表（csv/parquet），findings与lab从这里读
-├── evidence/     细节证据文档：逐格对照、诊断、复现对照
+├── evidence/     按需：findings确实要引用的逐格对照或诊断，没有就不建
 ├── log.md        执行、偏离、失败、恢复、成本（按日期追加）
 └── runs/         原始产物，不进git
 ```
@@ -29,10 +29,10 @@ work/NN_slug/
 ### run
 
 - **身份**：`NN-slug-YYYYMMDD[-rN]`，目录`work/NN_slug/runs/<run_id>/`。
-- **记录**：每个run在目录内写`RUN.json`：run_id、Phase、配置路径、`code_commit`、执行机器、开始/结束时间、资源用量、状态（running / complete / failed）、恢复来源（`resumed_from`）。
+- **记录**：每个run在目录内写一个`RUN.json`：run_id、Phase、配置路径、`code_commit`、种子、执行机器、开始/结束时间、状态（running / complete / failed）、恢复来源（`resumed_from`）。这是run溯源的全部要求，不另建lineage、哈希清单或审计文件；跨机传输时核验一次哈希即可。
 - **只跑已提交的代码**：部署前提交，`code_commit`对应真实的git版本；服务器部署与回传见[OPS](../OPS.md)。
-- **失败保留**：失败run不删不覆盖；恢复另起run并写`resumed_from`。
-- **正式run前**：做与风险相关的小规模试跑与必要测试。
+- **失败保留**：失败run不删不覆盖，在log记一行原因与处理；恢复另起run并写`resumed_from`。
+- **正式run前**：做一次小规模试跑，确认能跑通、输出可读。
 - **长任务**：分单元落盘，可识别已完成部分；同一run只有一个进程写入。
 
 ### 结果表
