@@ -1,18 +1,9 @@
-# research-project 1.2
+# research-project 1.3
 
 个人研究工作区的组织方法与模板。入口：[SKILL.md](SKILL.md)。
 
-- **两个区域**：`desk/`是研究者本人的区域，用来阅读、勾选、提问；其余目录是模型的执行与证据区。
-- **编号体系**：desk内部、计划、专栏、文章编号；论文与代码仓库用语义键；计划在plans、findings、work三处同号。
-- **分层INDEX**：AGENTS → 各目录`00_INDEX.md`（维护规则 + 导航）→ 文件，模型按任务逐层读取。
-- **Goal节奏**：阶段性成果节点，收尾时按清单整理疑问、inbox、方向与git。
-- **研究推进优先**：计划以假说与决定开头、以研究判断结束；溯源只做最小必要的四件事，待决定事项在对话中直接问。
-- **专栏阅读**：findings与concepts都是专栏式讲解文章，首尾带Typora勾选框。
+Goal统领研究，Plan保留Phase表；每个完成的Plan在concepts默认专栏中有可读分析，长期主题再综合跨计划理解。阅读与资料入口维护INDEX，执行事实留work，对外交付留sync；不默认生成防御性中间文件。
 
-## 使用
+新项目按需使用模板；根AGENTS自足，日常无需重读skill。初始化时将SKILL.md与templates携带到项目`.agents/skills/research-project/`，仅创建新文档时查模板。部署时也携带，不依赖本机安装路径。
 
-把整个仓库放到项目采用的skill目录（如`.claude/skills/research-project/`）。在新项目中请模型“用research-project初始化项目”，或“把旧项目迁移到research-project结构”。之后的日常工作按项目自己的AGENTS与INDEX进行，无需再加载skill。
-
-模板按项目目录结构组织在[templates/](templates/)，对照表见SKILL.md。
-
-[版本记录](CHANGELOG.md)
+版本记录见[CHANGELOG](CHANGELOG.md)。升级本skill不会自动迁移已采用旧版的项目。

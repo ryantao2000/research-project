@@ -1,22 +1,37 @@
-# 系统与环境
+# 环境、缓存与凭据
 .DS_Store
 __pycache__/
 .venv/
 .envs/
 .env
+.env.*
+.pytest_cache/
 .ipynb_checkpoints/
 
-# 临时与大体量产物
+# 原始与大体量产物
 tmp/
 work/*/runs/
 data/raw/
 data/cache/
 *.ckpt
 *.pt
+*.pth
 
-# 外部仓库与交付仓库：只跟踪登记INDEX
-repos/*/*/
-sync/*/
+# 外部代码副本；保留索引与inbox进出记录
+repos/*
+!repos/00_INDEX.md
+!repos/inbox/
+repos/inbox/*
+!repos/inbox/README.md
 
-# 文献原件（体积大，另行备份）；SOURCE.md与提取文本进git
+# 交付副本独立管理
+sync/*
+!sync/00_INDEX.md
+
+# 新原件暂存不进Git；保留进出记录
+literature/inbox/*
+!literature/inbox/README.md
 literature/**/*.pdf
+
+# ref按实际材料设置发布白名单，不用目录名推断许可
+# .agents/skills/research-project/需要随项目跟踪与部署

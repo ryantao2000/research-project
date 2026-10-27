@@ -1,0 +1,11 @@
+{
+  "run_id": "NN-slug-YYYYMMDD",
+  "configuration": {},
+  "code_commit": null,
+  "seeds": {},
+  "machine": null,
+  "started_at": null,
+  "ended_at": null,
+  "status": "planned",
+  "resumed_from": null
+}

@@ -1,84 +1,26 @@
-# <项目名> · 模型工作原则
+# <项目名> · 工作原则
 
-<!-- 常驻文件，目标5KB以内。只写每次都需要的原则、编号和路由；目录细则写在各自00_INDEX。
-     不写过渡期、某轮执行、某台机器的临时安排：这些写进计划或OPS，用完删掉。 -->
+<一句话研究目标。> 当前方向与Goal见README。本文件足以指导日常工作；只读任务相关材料，不必加载skill或逐层通读索引。需新建文档时可参考`.agents/skills/research-project/templates/`，本项目规则与用户当前要求优先。
 
-<一句话研究目标。> 方向详见 [OVERVIEW](desk/01_OVERVIEW.md)，当前状态见 [看板](desk/00_INDEX.md)。
+## 研究与阅读
 
-## 研究推进优先
+- goals统领阶段问题、路线与关键决定；plans以Phase总览表和逐阶段设计组织工作；work保存执行事实；concepts承载逐计划分析与长期理解；reports是正式报告，sync是选择性交付副本。
+- Goal用`goals/GNN_slug/00_INDEX.md`，报告用`reports/RNN_slug/00_INDEX.md`，各自正文/参考材料就近组织。Plan用`plans/NN_slug.md`，执行区用`work/NN_slug/`。
+- 每个完成的Plan至少交付`concepts/00_plan-analyses/NN_slug/00_INDEX.md`中的可读分析，再标为完整交付。简单计划一篇即可，复杂再拆；未执行草案不编造结果。分析解释问题、做法、结果、意义和下一步，数字链接work表/run；长期主题综合多个Plan，不重复全文。
+- goals、concepts、plans、reports、literature、repos、sync启用时维护00_INDEX。Goal阶段状态在goals索引，计划工作状态在plans索引，运行状态在run；内容/版本/状态变更时更新相关索引，不重复流水账。根README只放当前方向与入口。
+- 阅读勾选每篇只在直接管理它的concepts索引保留一处，由用户明确确认读懂才更新。单篇计划分析归专栏索引，多篇分析/主题文章归各自专题索引；正文不重复勾选，未勾选不代表未读。
+- 中文为主，公式用\(…\)和独占行$$。先结论，再解释机制与证据；区分观察、推导与假说，保留重要负结果及必要样本量/基线/不确定性。影响结论的限制就近写，不堆重复防御性声明。
 
-- 每次工作都要回答一个研究问题或推动一个研究决定。负结果转成下一步决定（改假说、换方法、转叙事），不转成修复或审计计划。
-- 溯源只做最小必要，下表之外的审计、核验、证据文件不做，除非用户点名或有具体证据怀疑某个结果有错：
+## 材料与执行
 
-| 必须做 | 不做 |
-|---|---|
-| run记录配置、`code_commit`、种子、机器、状态（一个`RUN.json`） | lineage补登、逐图来源审计、视觉验收、结论台账 |
-| 测试集纪律：切分冻结，封存段只评一次，查看验证段在log记一行 | 原件/既有修改保护审计、每Phase的完整性核验报告 |
-| findings中的数字链接到`tables/`或run产物 | 为每个结论另建evidence文件 |
-| 失败与恢复在log记一行：原因与处理 | 失败分层叙述、单独的失败证据文件 |
+- 不建独立desk/findings/meetings/questions/lab管理体系。外部专用材料就近放Goal/分析/报告的ref；已入literature/repos的材料直接链接，原件只读。教学notebook就近放concepts，探索notebook放work。
+- 新文献/外部代码直接放各自inbox，README简记进出；使用时确认来源后归位。归档可移动原件，确认目标完整后可删除inbox重复件，不能删除唯一原件；材料清完保留README历史。literature用文献key，repos优先原仓库名，重名用owner--repo；索引维护来源、版本和关联，不强制同名。
+- 共用稳定代码放code，专用实现放work，临时文件放tmp。uv管理项目独立环境，启动方式适配实际系统；不默认WSL或Bash。验证实际改动与依赖范围，不机械重跑全项目。
+- 正式实验运行已提交代码，每run一份RUN.json记录配置、code_commit、种子、机器、起止、状态与恢复来源；日志归run。失败保留，恢复另起run，不覆盖既有实验。数据可见范围按data/README与获批协议，不擅自读取封存数据选方法。
+- 默认不生成evidence/audit、逐图台账、独立补充/限制/交接/验收报告；明确要求或具体异常所需诊断除外。必要测试与检查仍做，跨机核验一次哈希即可。重要转向记Goal，Goal收尾写判断、依据与下一步，不强制清理全项目。
 
-- 跨机传输时核验一次哈希即可，不写进findings。
-- 需要研究者决定的事在对话中直接说清（选项、代价、推荐），不写进INDEX或计划。
+## 授权与交付
 
-## 边界
-
-- 本次范围由用户当前要求决定；只读任务不改文件。已获批的计划在范围内连续完成，Phase切换不重复请求批准；完成交付后停止，不为用完预算追加工作。
-- 新的付费计算、超出计划上限、push/上传/对外发布、删除原始数据或run，需用户明确同意。
-- 不读取、打印或提交`.env`与密钥；代码只通过环境变量名引用凭据。
-- 保护原件：`data/`原始数据、`literature/`原文、`repos/`外部仓库、`09_meetings/01_source/`，只读不改。
-- 阅读勾选只在用户明确表示读懂时修改。
-
-## 编号
-
-| 对象 | 格式 | 位置 | 规则 |
-|---|---|---|---|
-| 目标 | `G<NN>_slug` | desk/03_goals | 全局唯一，不复用 |
-| 计划 | `NN_slug`，行文写P<NN> | desk/04_plans · desk/05_findings · work | 三处同号同slug；Phase从1起，需要时加Phase 0最小验证 |
-| 结果专题 | 专栏内`NN_slug` | desk/05_findings/NN_slug/ | 配套notebook放lab/findings/NN_slug/ |
-| 概念专栏/文章 | `NN_slug` | desk/06_concepts/ | 编号分配后不改；阅读顺序以INDEX为准 |
-| 报告 | `R<NN>_slug` | desk/07_reports | 版本记在报告目录内 |
-| 决定 | `D<NN>` | desk/02_DECISIONS.md | 只追加；撤回也只在这里记 |
-| 疑问 | `Q<NNN>_slug` | desk/08_questions | 必须写明去向 |
-| 外部输入 | `G<NN>-S<nn>` | desk/09_meetings | 按Goal分卷 |
-| notebook | `NN_slug.ipynb` | lab/concepts/NN_slug/ · lab/findings/NN_slug/ | 与所陪读的专栏同号同slug |
-| run | `NN-slug-YYYYMMDD[-rN]` | work/NN_slug/runs | 以所属计划号开头 |
-| 文献/代码仓库 | 语义键`author年份-主题` | literature · repos | 同一工作两边同key |
-
-## 按任务读取
-
-先读与任务相关的入口，不通读全仓。
-
-| 任务 | 入口 |
-|---|---|
-| 了解现状 | [desk/00_INDEX.md](desk/00_INDEX.md) |
-| 开启或收尾Goal | [desk/03_goals/00_INDEX.md](desk/03_goals/00_INDEX.md) |
-| 建立、修订、恢复计划 | [desk/04_plans/00_INDEX.md](desk/04_plans/00_INDEX.md) |
-| 执行实验、写脚本、跑run | [work/00_INDEX.md](work/00_INDEX.md)，然后`work/NN_slug/00_INDEX.md` |
-| 使用服务器 | [OPS.md](OPS.md) |
-| 写或更新结果专栏 | [desk/05_findings/00_INDEX.md](desk/05_findings/00_INDEX.md) |
-| 讲解、写学习材料 | [desk/06_concepts/00_INDEX.md](desk/06_concepts/00_INDEX.md) |
-| 写或运行notebook | [lab/00_INDEX.md](lab/00_INDEX.md) |
-| 处理疑问 | [desk/08_questions/00_INDEX.md](desk/08_questions/00_INDEX.md) |
-| 入库论文 / 代码仓库 | [literature/00_INDEX.md](literature/00_INDEX.md) · [repos/00_INDEX.md](repos/00_INDEX.md) |
-| 写报告、对外交付 | [desk/07_reports/00_INDEX.md](desk/07_reports/00_INDEX.md) · [sync/00_INDEX.md](sync/00_INDEX.md) |
-
-## 代码与执行
-
-- 另一个计划会调用的代码放`code/`（方法包与测试）；只服务本计划的放`work/NN_slug/scripts/`；临时文件放`tmp/`。
-- 服务器只运行已提交的代码，run记录`code_commit`。部署与回传命令见OPS。
-- 结果数字来自`work/NN_slug/tables/`或run原始产物；lab notebook只做探索。
-- 环境用uv：`uv run python …`。
-
-## 写作
-
-- 中文为主；代码标识、论文原名、标准指标保留英文。
-- 行内公式`\(…\)`，独立公式用前后独占一行的`$$`。
-- desk中的阅读型文档（计划、结果专题、概念文章、报告）首尾保留勾选框。
-- 先给结论再展开；区分已核验事实、推导与假说；给出样本量、基线和不确定性；负结果照写。边界写清即可，不逐条罗列“不能推出什么”。
-- 文件写当前版本：被推翻的内容直接改写，在修订记录留一行与commit号，不在顶部叠加撤回通知或保留整份历史稿。
-- 读者在正文中写的`> ❓`是待回答的疑问，处理方式见questions INDEX。
-
-## Git
-
-- 获批计划写明“包含本地提交”时，每个Phase完成与Goal收尾各提交一次，信息格式`P<NN> Phase<k>: …`或`G<NN> 收尾: …`；只提交本任务相关文件。
-- push由用户执行或明确授权后执行。`sync/`下每个仓库独立提交与push。
+- 本次范围由当前请求决定；既有授权内连续完成，不在Phase切换时重复审批。新增付费计算、超出预算、对外push/上传、删除唯一原件或run需明确授权。不读取/打印凭据。
+- 只提交任务相关文件，不强制每Phase提交。sync按授权白名单从单一源导出，不擅自发布数据、原文、权重、整个主仓历史或凭据；同步失败不应中断实验。
+- 部署携带AGENTS及`.agents/skills/research-project/`中的skill与模板，所需数据和恢复产物另按范围传输；不依赖另一台机器的绝对路径。环境/恢复命令见OPS，发布目标与状态见sync索引。
