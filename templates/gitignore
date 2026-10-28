@@ -24,9 +24,8 @@ repos/*
 repos/inbox/*
 !repos/inbox/README.md
 
-# 交付副本独立管理
-sync/*
-!sync/00_INDEX.md
+# 交付目录整体独立管理，包含索引；主仓不跟踪任何sync内容
+/sync/
 
 # 新原件暂存不进Git；保留进出记录
 literature/inbox/*

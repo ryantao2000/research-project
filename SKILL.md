@@ -2,9 +2,9 @@
 name: research-project
 description: 初始化、迁移或调整个人研究工作区及其模板，以 Goal 推进研究，维护阅读与资料索引，将逐计划分析和长期理解沉淀到 concepts，并组织实验与交付。
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
 ---
-# research-project v1.3
+# research-project v1.3.1
 
 本 skill 用于初始化、迁移、结构调整及取用模板。日常工作由项目根 AGENTS.md 自足指导，只读任务相关内容；不要每次重读 skill 或全部索引。
 
@@ -45,7 +45,19 @@ project/
 └── archive/                          按需
 ```
 
-目录有内容时再建，但concepts启用时默认建立00_plan-analyses专栏。goals、concepts、plans、reports、literature、repos、sync一旦启用就维护00_INDEX.md；多篇文章的concepts主题另有专题INDEX。没有独立desk、findings、meetings、questions或lab体系。
+新项目初始化时默认配好下列基础目录与入口，不等待内容出现再建。具体Goal/Plan/报告/主题子目录、ref及run按实际内容创建；不虚构研究任务。多篇文章的concepts主题另有专题INDEX。没有独立desk、findings、meetings、questions或lab体系。
+
+| 默认创建 | 初始化内容 |
+|---|---|
+| 根`README.md`、`AGENTS.md`、`.gitignore` | 使用对应模板，填入已知项目事实与规则 |
+| `goals/`、`plans/`、`concepts/`、`reports/`、`literature/`、`repos/`、`sync/` | 各自的`00_INDEX.md`；尚无条目时保留表头，正文写“暂无”，删除示例占位行 |
+| `concepts/00_plan-analyses/` | `00_INDEX.md`，在concepts总索引登记 |
+| `literature/inbox/`、`repos/inbox/` | 各自的`README.md`进出记录 |
+| `data/` | `README.md`；未知切分/许可写“未定”，不能视为授权 |
+| `work/`、`code/`、`tools/`、`tmp/`、`archive/` | 创建空目录，不添加无意义的.gitkeep或占位代码；Git不保留空目录，clone后按需恢复 |
+| `.agents/skills/research-project/` | 本skill与完整templates副本 |
+
+`OPS.md`、`pyproject.toml`/`uv.lock`仅在实际有运行环境需要时创建；不生成虚构机器配置。`sync/`及其索引只在本地初始化创建，不由主仓跟踪；全新clone后需使用sync模板重建本地入口，独立交付仓库按已知地址另行取得。
 
 ## 内容与状态归属
 
@@ -56,7 +68,7 @@ project/
 - **work**：运行事实、完整输出、表图与简短结论；正式run一份RUN.json与日志。正文数字直接链接表/run，重要负结果和不确定性不能因精简而省略。
 - **报告**：每份报告独立RNN_slug目录，INDEX写对象、用途、当前版本及入口，正文是实际Markdown/TeX/幻灯片等。ref放专用模板、批注等；不预建多套版本。
 - **ref**：Goal、分析、主题和报告可就近保存专用原件；已有literature/repos材料用链接，不反复复制。取消meetings不等于删除旧原件。
-- **sync**：源文件只维护一份，按白名单导出。它与计算部署/回传分开；不在交付副本手工修改同一正文。
+- **sync**：整个目录包括`00_INDEX.md`均不进主仓Git，根`.gitignore`使用`/sync/`，不留索引例外。初始化创建本地目录与索引；独立仓库各自管理，本地登记随sync另行备份。源文件只维护一份，按白名单导出。它与计算部署/回传分开；不在交付副本手工修改同一正文。
 
 INDEX是读者界面：新增/移动内容、改变版本/状态/阅读顺序时更新相关索引，不每轮遍历全项目。根README只提示当前方向与入口。计划工作状态在plans INDEX，执行状态在run，阅读导航在concepts；不维护多份相同流水账。
 
@@ -74,13 +86,15 @@ notebook就近放concepts或work，默认共用项目环境；长计算由脚本
 
 ## 初始化、迁移与随项目携带
 
-1. 从对话提取研究方向与当前Goal，未知且影响工作时再问。使用模板生成自足AGENTS、README和实际需要的文件；移除空节及填写注释，不预建全套空目录。AGENTS必须包含组织原则、Plan分析完成条件、索引职责、资料处理、运行/发布边界，不把核心约束外包给本skill。
+1. 从对话提取研究方向与当前Goal，未知且影响工作时再问。使用模板生成自足AGENTS、README及上表规定的默认基础目录与入口；清理填写注释、示例行和未替换占位符，未定事实明确注明，保留空目录入口但不预造具体研究内容。AGENTS必须包含组织原则、Plan分析完成条件、索引职责、资料处理、运行/发布边界，不把核心约束外包给本skill。
 2. 将本skill的`SKILL.md`和完整`templates/`复制到项目`.agents/skills/research-project/`，不复制源仓.git、临时文件或递归复制整个项目。项目已有副本时比对版本和本地定制后合并，不直接覆盖。根AGENTS标明模板位置；日常无需加载，创建新文档才查对应模板。宿主可用其他skill目录时可适配位置并同步路由，避免多个活动副本。
 3. 部署/交接时将根AGENTS与该skill副本纳入代码包，避免远端找不到模板；这不自动授予传输/发布权限。环境与命令按真实Windows/macOS/Linux选择，不默认Bash、tmux、WSL或软链接。
 4. 迁移先用一个活跃Goal及关联Plan作样板，保留旧材料与编号。旧findings可转入对应逐计划分析，再择要沉淀长期主题；旧meetings按需归Goal的ref，未归属的留旧归档。重要路径映射写根README即可。未纳入范围的旧项目不随skill升级自动改动。
 5. 同机试行可明确引用旧位置；跨机独立运行应包含所需数据、外部代码、run或给出实际获取方式。不能依赖另一台机器的绝对路径，未知远端缺口如实说明。
 
 Goal收尾写判断、依据、下一步，检查所属已完成Plan是否有分析，再更新相关索引。不强制inbox清点、逐Phase提交或全项目审计。Git提交和发布沿用已有授权，使用skill本身不扩张授权。
+
+初始化结束检查基础入口可用、模板副本齐全、主仓忽略规则覆盖`sync/00_INDEX.md`及任意sync子目录。现有项目若曾跟踪sync，迁移时仅取消索引跟踪并保留本地文件，不删除独立仓库或改写历史；这一步仅在用户授权迁移的范围内执行。
 
 ## 模板路由
 
